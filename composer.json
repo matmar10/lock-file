@@ -1,0 +1,21 @@
+{
+    "name": "matmar10/lock-file",
+    "description": "OOP lock file implementation using php flock",
+    "keywords": ["php", "lock file", "lock", "flock"],
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "Matthew J. Martin",
+            "email": "matthew.mar10@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": { "Lock": "" }
+    }
+}
