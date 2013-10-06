@@ -39,10 +39,10 @@ class FileTest extends PHPUnit_Framework_TestCase
 
         return array(
             array(
-                sys_get_temp_dir() . 'new-file.LOCK',
+                sys_get_temp_dir() . '/new-file.LOCK',
             ),
             array(
-                sys_get_temp_dir() . 'new-2-file.LOCK',
+                sys_get_temp_dir() . '/new-2-file.LOCK',
                 'Y-m-d h:i:s',
             ),
         );
@@ -139,7 +139,7 @@ class FileTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                sys_get_temp_dir() . 'new-file.LOCK',
+                sys_get_temp_dir() . '/new-file.LOCK',
             ),
         );
     }
