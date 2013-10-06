@@ -13,7 +13,7 @@
 >
     <testsuites>
         <testsuite name="Lock File Test Suite">
-            <directory>./Tests/</directory>
+            <directory>./test/Lock/Tests/</directory>
         </testsuite>
     </testsuites>
 

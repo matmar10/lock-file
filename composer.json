@@ -16,6 +16,9 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "psr-0": { "Lock": "" }
+        "psr-0": {
+            "Lock\\Tests": "test",
+            "Lock": "src"
+        }
     }
 }
