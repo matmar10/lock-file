@@ -10,6 +10,14 @@ use PHPUnit_Framework_TestCase;
 class FileTest extends PHPUnit_Framework_TestCase
 {
 
+    public function setUp()
+    {
+        $fixturesDir = __DIR__ . '/../fixtures';
+        $existingFile = $fixturesDir . '/existing-file.LOCK';
+        $tempDir = sys_get_temp_dir();
+        copy($existingFile, $tempDir . '/existing-file.LOCK');
+    }
+
     /**
      * @dataProvider provideTestConstructData
      */
@@ -28,13 +36,13 @@ class FileTest extends PHPUnit_Framework_TestCase
 
     public function provideTestConstructData()
     {
-        $fixturesDir = __DIR__ . '/../fixtures';
+
         return array(
             array(
-                $fixturesDir . 'new-file.LOCK',
+                sys_get_temp_dir() . 'new-file.LOCK',
             ),
             array(
-                $fixturesDir . 'new-2-file.LOCK',
+                sys_get_temp_dir() . 'new-2-file.LOCK',
                 'Y-m-d h:i:s',
             ),
         );
@@ -78,14 +86,19 @@ class FileTest extends PHPUnit_Framework_TestCase
 
     public function provideTestAcquireData()
     {
-        $fixturesDir = __DIR__ . '/../fixtures/';
+
+        $fixturesDir = __DIR__ . '/../fixtures';
+        $existingFile = $fixturesDir . '/existing-file.LOCK';
+        $tempDir = sys_get_temp_dir();
+        copy($existingFile, $tempDir . '/existing-file.LOCK');
+
         return array(
             array(
-                $fixturesDir . 'new-file.LOCK',
+                $tempDir . '/new-file.LOCK',
                 false
             ),
             array(
-                $fixturesDir . 'existing-file.LOCK',
+                $tempDir . '/existing-file.LOCK',
                 true
             ),
         );
@@ -124,10 +137,9 @@ class FileTest extends PHPUnit_Framework_TestCase
 
     public function provideTestAcquireWaitData()
     {
-        $fixturesDir = __DIR__ . '/../fixtures/';
         return array(
             array(
-                $fixturesDir . 'new-file.LOCK',
+                sys_get_temp_dir() . 'new-file.LOCK',
             ),
         );
     }
